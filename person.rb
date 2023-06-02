@@ -1,57 +1,38 @@
-class Nameable
-  def correct_name
-    raise NotImplementedError, "Subclasses must implement 'correct_name' method."
-  end
-end
-
+require_relative 'nameable'
+require_relative 'capitalize_decorator'
+require_relative 'trimmer_decorator'
 class Person < Nameable
-  attr_reader :id, :age
-  attr_accessor :name
+  attr_reader :id
+  attr_accessor :name, :age, :books, :rentals
 
-  def initialize(age, name = 'Unknown', parent_permission: true)
-    super()
-    @id = id
+  def initialize(age, name: 'unkown', parent_permission: true)
+    super
+    @id = Random.rand(1..1001)
     @name = name
     @age = age
     @parent_permission = parent_permission
-  end
-
-  def correct_name
-    name
-  end
-
-  def can_use_services?
-    of_age? || @parent_permission
+    @rentals = []
   end
 
   private
 
   def of_age?
-    @age >= 18
-  end
-end
+    return true if @age >= 18
 
-class Decorator < Nameable
-  def initialize(nameable)
-    super()
-    @nameable = nameable
+    false
+  end
+
+  def add_rental(date, book)
+    Rental.new(date, self, book)
+  end
+
+  public
+
+  def can_use_services?
+    of_age? || @parent_permission
   end
 
   def correct_name
-    @nameable.correct_name
-  end
-end
-
-class CapitalizeDecorator < Decorator
-  def correct_name
-    super.capitalize
-  end
-end
-
-class TrimmerDecorator < Decorator
-  MAX_LENGTH = 10
-
-  def correct_name
-    super[0, MAX_LENGTH]
+    @name
   end
 end
