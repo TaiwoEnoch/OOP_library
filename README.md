@@ -16,7 +16,7 @@
   - [⭐️ Show your support ](#️-show-your-support-)
   - [📝 License ](#-license-)
 
-# 📖 [Enumerable Practice] <a name="about-project"></a>
+# 📖 OOP_library <a name="about-project"></a>
 
 The OOP School Library: a coding haven for aspiring programmers. Explore a vast collection of programming books, digital resources, and collaborative coding spaces. Unleash your potential, master OOP, and embrace a world of endless possibilities.
 
@@ -123,7 +123,7 @@ Thats it now you can execute your program on terminal:)
 ## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
-To add an [issue](https://github.com/MosDevx/Enumerable-Ruby/issues)
+To add an [issue](https://github.com/TaiwoEnoch/OOP_library/issues)
 
 ## ⭐️ Show your support <a name="support"></a>
 
