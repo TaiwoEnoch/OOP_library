@@ -1,12 +1,12 @@
-require_relative './person'
+require './person'
 
 class Teacher < Person
-  def initialize(age, specialization, name: 'Unknown', parent_permission: true)
-    super(age, name: name, parent_permission: parent_permission)
+  def initialize(id, age, specialization, name: 'Unknown')
+    super(id, name, age)
     @specialization = specialization
   end
 
-  def can_use_services?
+  def can_use_service?
     true
   end
 end
