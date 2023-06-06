@@ -1,6 +1,6 @@
-require_relative 'nameable'
+require './nameable'
 
-class BaseDecorator < Nameable
+class Decorator < Nameable
   def initialize(nameable)
     super()
     @nameable = nameable
