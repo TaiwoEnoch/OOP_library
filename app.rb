@@ -120,21 +120,19 @@ class App
     end
   end
 
-  let's preserve our data in json format here!
+  #let's preserve our data in json format here!
 
   def save_data
-    save_to_json('books.json', @books)
-    save_to_json('people.json', @people)
-    save_to_json('rentals.json', @rentals)
+    save_to_json("book.json", @book)
+    save_to_json("person.json", @person)
+    save_to_json("rental.json", @rental)
   end
 
   def load_data
-    @books = load_from_json('books.json')
-    @people = load_from_json('people.json')
-    @rentals = load_from_json('rentals.json')
+    @books = load_from_json("book.json")
+    @people = load_from_json("person.json")
+    @rentals = load_from_json("rental.json")
   end
-
-  uncomment line 137 to 147 out
 
   def save_to_json(file_name, data)
     File.write(file_name, JSON.generate(data))
