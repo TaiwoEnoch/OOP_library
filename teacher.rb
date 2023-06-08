@@ -1,12 +1,22 @@
-require './person'
+require_relative 'person'
 
 class Teacher < Person
-  def initialize(id, age, specialization, name: 'Unknown')
-    super(id, name, age)
+  attr_reader :specialization, :type
+
+  def initialize(name: 'Unknown', age: 0, specialization: '')
+    super(name: name, age: age)
     @specialization = specialization
   end
 
-  def can_use_service?
+  def can_use_services?
     true
+  end
+
+  def to_h
+    {
+      'name' => @name,
+      'age' => @age,
+      'specialization' => @specialization
+    }
   end
 end
