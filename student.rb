@@ -1,15 +1,30 @@
-require './person'
-require './class_room'
+require_relative 'person'
 
 class Student < Person
-  attr_accessor :classroom
+  attr_reader :classroom, :type
 
-  def initialize(id, name, age, classroom_name)
-    super(id, name, age)
-    @classroom = ClassRoom.new(classroom_name)
+  def initialize(name: 'Unknown', age: 0, parent_permission: true, classroom: 'Unknown')
+    super(name: name, age: age, parent_permission: parent_permission)
+    @classroom = classroom
+  end
 
-    return unless classroom
+  def to_h
+    {
+      id: @id,
+      name: @name,
+      age: @age,
+      parent_permission: @parent_permission,
+      rentals: @rentals,
+      classroom: @classroom
+    }
+  end
 
-    classroom.add_student(self)
+  def classroom=(classroom)
+    @classroom = classroom
+    classroom.add_student(self) unless classroom.students.include?(self)
+  end
+
+  def play_hooky
+    '¯\(ツ)/¯'
   end
 end
