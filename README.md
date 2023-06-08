@@ -102,7 +102,7 @@ Thats it now you can execute your program on terminal:)
 
 ## 👥 Authors <a name="authors"></a>
 
- <a name="author"></a>
+ <a name="authors"></a>
 
 👤 **Taiwo Enoch**
 
